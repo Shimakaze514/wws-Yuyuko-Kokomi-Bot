@@ -155,17 +155,20 @@ async def get_AccountIdByName(server: str, name: str) -> str:
 
 async def get_ClanIdByName(server: str, tag: str):
     try:
-        url = 'https://api.wows.shinoaki.com/public/wows/clan/search'
-        params = {'server': server, 'tag': tag, 'type': 1}
+        url = f'https://v3-api.wows.shinoaki.com:8443/public/wows/clan/search/{server}'
+        params = {
+            'tag': tag,
+        }
         client_yuyuko = await get_client_yuyuko()
         resp = await client_yuyuko.get(url, params=params, timeout=10)
         result = orjson.loads(resp.content)
         if result['code'] == 200 and result['data']:
-            # for each in result['data']:
-            #    List.append([each['clanId'],each['name'],each['serverName'],each['tag']])
             return result['data']
         else:
             return None
+    except (TimeoutError, ConnectTimeout):
+        logger.warning(traceback.format_exc())
+        return None
     except PoolTimeout:
         await recreate_client_yuyuko()
         return
@@ -206,7 +209,7 @@ async def check_yuyuko_cache(server, id):
         await recreate_client_yuyuko()
         return False
     except Exception:
-        logger.error(traceback.format_exc())
+        logger.error('缓存上报失败')
         return False
 
 
@@ -221,8 +224,7 @@ async def get_wg_info(params, key, url):
         await recreate_client_wg()
         return
     except Exception:
-        logger.error(traceback.format_exc())
-        logger.error(f'上报url：{url}')
+        logger.error(f'wg请求异常,请配置代理后尝试,上报url：{url}')
         return
 
 

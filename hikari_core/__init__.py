@@ -70,6 +70,15 @@ async def init_hikari(
     
 def isAbleCommand(command_text):
     able_command_list = [
+        'bind',
+        '绑定',
+        'set',
+        'recents',
+        '单场近期',
+        'clan',
+        '军团',
+        '公会', 
+        '工会',
         'box',
         'sd',
         '圣诞船池',

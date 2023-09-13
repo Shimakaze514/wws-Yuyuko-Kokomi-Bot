@@ -10,8 +10,7 @@ from .game.roll import roll_ship
 from .game.sx import get_sx_info
 from .moudle.publicAPI import get_ship_name
 from .moudle.wws_bind import change_BindInfo, delete_BindInfo, get_BindInfo, set_BindInfo, set_special_BindInfo
-
-# from .moudle.wws_clan import get_ClanInfo
+from .moudle.wws_clan import get_ClanInfo
 from .moudle.wws_info import get_AccountInfo
 from .moudle.wws_real_game import add_listen_list, delete_listen_list, get_diff_ship, get_listen_list, reset_config
 from .moudle.wws_recent import get_RecentInfo
@@ -37,21 +36,21 @@ class command:
 
 
 first_command_list = [  # 同指令中越长的匹配词越靠前
-    #command(('切换绑定', '更换绑定', '更改绑定'), change_BindInfo),
-    #command(('查询绑定', '绑定查询', '绑定列表', '查绑定'), get_BindInfo),
-    #command(('删除绑定',), delete_BindInfo),
-    #command(('特殊绑定',), set_special_BindInfo),
-    #command(('ship.rank', 'rank'), get_ShipRank),
-    #command(('bind', '绑定', 'set'), set_BindInfo),
-    #command(('recents', '单场近期'), None, get_RecentsInfo),
-    #command(('recent', '近期'), None, get_RecentInfo),
-    #command(('ship', '单船'), None, get_ShipInfo),
+    command(('切换绑定', '更换绑定', '更改绑定'), change_BindInfo),
+    command(('查询绑定', '绑定查询', '绑定列表', '查绑定'), get_BindInfo),
+    command(('删除绑定',), delete_BindInfo),
+    command(('特殊绑定',), set_special_BindInfo),
+    command(('ship.rank', 'rank'), get_ShipRank),
+    command(('bind', '绑定', 'set'), set_BindInfo),
+    command(('recents', '单场近期'), None, get_RecentsInfo),
+    command(('recent', '近期'), None, get_RecentInfo),
+    command(('ship', '单船'), None, get_ShipInfo),
     # command(("record", "历史记录"), None, get_record),
-    # command(("clan", "军团", "公会", "工会"), None, get_ClanInfo),
-    #command(("随机表情包",), get_Random_Ocr_Pic),
-    #command(('roll', '随机'), roll_ship),
-    #command(('sx', '扫雪'), get_sx_info),
-    #command(('ban', '封号记录'), get_BanInfo),
+    command(('clan', '军团', '公会', '工会'), get_ClanInfo),
+    # command(("随机表情包",), get_Random_Ocr_Pic),
+    command(('roll', '随机'), roll_ship),
+    command(('sx', '扫雪'), get_sx_info),
+    command(('ban', '封号记录'), get_BanInfo),
     command(('box', 'sd', '圣诞船池'), check_christmas_box),
     command(('搜船名', '查船名', '船名'), get_ship_name),
     command(('help', '帮助'), get_help),
@@ -65,8 +64,8 @@ first_command_list = [  # 同指令中越长的匹配词越靠前
 ]
 
 second_command_list = [
-    #command(('recent', '近期'), get_ShipRecent),
-    #command(('ship', '单船'), get_ShipRecent),
+    command(('recent', '近期'), get_ShipRecent),
+    command(('ship', '单船'), get_ShipRecent),
     # command(("clan", "军团", "公会", "工会"), get_record),
     # command(("record", "历史记录"), get_record),
 ]

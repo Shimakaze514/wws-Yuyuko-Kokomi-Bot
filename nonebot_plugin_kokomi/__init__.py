@@ -13,6 +13,7 @@ from .scripts.config import BLACKLIST, WHITELIST
 
 from .command_select import select_funtion
 
+__plugin_version__ = "3.2.9"
 driver = get_driver()
 wws_bot = on_command("wws")  # 以wws开头的消息将被触发
 
