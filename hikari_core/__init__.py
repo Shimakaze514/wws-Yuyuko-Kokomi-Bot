@@ -40,24 +40,7 @@ async def init_hikari(
     Returns:
         Hikari_Model: 可通过Hikari.Status和Hikari.Output.Data内数据判断是否输出
     """
-    if isAbleCommand(command_text=command_text) == True:
-        try:
-            userinfo = UserInfo_Model(Platform=platform, PlatformId=PlatformId, GroupId=GroupId)
-            input = Input_Model(Command_Text=command_text)
-            hikari = Hikari_Model(UserInfo=userinfo, Input=input)
-            hikari = await analyze_command(hikari)
-            if not hikari.Status == 'init' or not hikari.Function:
-                return hikari
-            hikari: Hikari_Model = await hikari.Function(hikari)
-            #bot.send('yuyuko')
-            return await output_hikari(hikari)
-        except ValidationError:
-            logger.error(traceback.format_exc())
-            return Hikari_Model().error('参数校验错误，请联系开发者确认入参是否符合Model')
-        except Exception:
-            logger.error(traceback.format_exc())
-            return Hikari_Model().error('Hikari-core顶层错误，请检查log')
-    else:
+    try:
         userinfo = UserInfo_Model(Platform=platform, PlatformId=PlatformId, GroupId=GroupId)
         input = Input_Model(Command_Text=command_text)
         hikari = Hikari_Model(UserInfo=userinfo, Input=input)
@@ -65,45 +48,14 @@ async def init_hikari(
         if not hikari.Status == 'init' or not hikari.Function:
             return hikari
         hikari: Hikari_Model = await hikari.Function(hikari)
-        logger.warning('yyk把指令交给kkm处理了')
-        return hikari
-    
-def isAbleCommand(command_text):
-    able_command_list = [
-        'bind',
-        '绑定',
-        'set',
-        'recents',
-        '单场近期',
-        'clan',
-        '军团',
-        '公会', 
-        '工会',
-        'box',
-        'sd',
-        '圣诞船池',
-        '搜船名',
-        '查船名',
-        '船名',
-        'help',
-        '帮助',
-        'check_version',
-        '检查更新',
-        '更新样式',
-        '查询监控', 
-        '监控列表', 
-        '查询监听', 
-        '监听列表',
-        '测试监控',
-        '添加监控',
-        '删除监控',
-        '重置监控'
-    ]
-    for command in able_command_list:
-        result = re.search(command, command_text)
-        if result:
-            return True
-    return False
+        #bot.send('yuyuko')
+        return await output_hikari(hikari)
+    except ValidationError:
+        logger.error(traceback.format_exc())
+        return Hikari_Model().error('参数校验错误，请联系开发者确认入参是否符合Model')
+    except Exception:
+        logger.error(traceback.format_exc())
+        return Hikari_Model().error('Hikari-core顶层错误，请检查log')
 
 async def callback_hikari(hikari: Hikari_Model) -> Hikari_Model:
     """回调wait状态的Hikari

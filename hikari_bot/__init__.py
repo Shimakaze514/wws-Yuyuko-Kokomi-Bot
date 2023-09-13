@@ -46,7 +46,7 @@ EXCEED_NOTICE = f'您今天已经冲过{_max}次了，请明早5点后再来！'
 is_first_run = True
 _nlmt = DailyNumberLimiter(_max)
 _flmt = FreqLimiter(3)
-__bot_version__ = '1.0.1'
+__bot_version__ = '1.0.2'
 
 bot_get_random_pic = on_fullmatch('wws 随机表情包', block=True, priority=5)
 #bot_update = on_command('wws 更新Hikari', priority=5, block=True, permission=SUPERUSER)
@@ -71,76 +71,86 @@ set_hikari_config(
 SlectState = namedtuple('SlectState', ['state', 'SlectIndex', 'SelectList'])
 SecletProcess = defaultdict(lambda: SlectState(False, None, None))
 
-
 @bot.handle()
 async def main(bot: Bot, ev: MessageEvent, matchmsg: Message = CommandArg()):  # noqa: B008, PLR0915
-    try:
-        server_type = None
-        if isinstance(ev, PrivateMessageEvent) and (driver.config.private or str(ev.user_id) in driver.config.superusers):  # 私聊事件,superusers默认不受影响
-            server_type = 'QQ'
-        elif isinstance(ev, GroupMessageEvent) and driver.config.group and ev.group_id not in driver.config.ban_group_list:  # 群聊事件
-            server_type = 'QQ'
-        elif isinstance(ev, GuildMessageEvent) and driver.config.channel:  # 频道事件
-            if driver.config.all_channel or ev.channel_id in driver.config.channel_list:
-                server_type = 'QQ_CHANNEL'
+    if isAbleCommand(command_text=str(matchmsg)) == True:
+        try:
+            server_type = None
+            if isinstance(ev, PrivateMessageEvent) and (driver.config.private or str(ev.user_id) in driver.config.superusers):  # 私聊事件,superusers默认不受影响
+                server_type = 'QQ'
+            elif isinstance(ev, GroupMessageEvent) and driver.config.group and ev.group_id not in driver.config.ban_group_list:  # 群聊事件
+                server_type = 'QQ'
+            elif isinstance(ev, GuildMessageEvent) and driver.config.channel:  # 频道事件
+                if driver.config.all_channel or ev.channel_id in driver.config.channel_list:
+                    server_type = 'QQ_CHANNEL'
+                else:
+                    return False
             else:
                 return False
-        else:
-            return False
-        qqid = ev.user_id
-        group_id = None
-        if ev.message_type == 'group':
-            group_id = ev.group_id
-        if not _nlmt.check(qqid):
-            await bot.send(ev, EXCEED_NOTICE, at_sender=True)
-            return False
-        if not _flmt.check(qqid):
-            await bot.send(ev, '您冲得太快了，请稍候再冲', at_sender=True)
-            return False
-        _flmt.start_cd(qqid)
-        _nlmt.increase(qqid)
-        superuser_command_list = ['重置监控']
-        adminuser_command_list = ['添加监控', '删除监控']
-        for each in superuser_command_list:
-            if each in str(ev.message) and str(qqid) not in driver.config.superusers:
-                await bot.send(ev, '该命令仅限超级管理员使用')
-                return
-        if str(qqid) not in driver.config.superusers:
-            for each in adminuser_command_list:
-                if each in str(ev.message) and qqid not in driver.config.admin_list:
-                    await bot.send(ev, '请联系机器人搭建者添加权限')
+            qqid = ev.user_id
+            group_id = None
+            if ev.message_type == 'group':
+                group_id = ev.group_id
+            if not _nlmt.check(qqid):
+                await bot.send(ev, EXCEED_NOTICE, at_sender=True)
+                return False
+            if not _flmt.check(qqid):
+                await bot.send(ev, '您冲得太快了，请稍候再冲', at_sender=True)
+                return False
+            _flmt.start_cd(qqid)
+            _nlmt.increase(qqid)
+            superuser_command_list = ['重置监控']
+            adminuser_command_list = ['添加监控', '删除监控']
+            for each in superuser_command_list:
+                if each in str(ev.message) and str(qqid) not in driver.config.superusers:
+                    await bot.send(ev, '该命令仅限超级管理员使用')
                     return
-        hikari = await init_hikari(platform=server_type, PlatformId=str(qqid), command_text=str(matchmsg), GroupId=group_id)
-        if hikari.Status == 'success':
-            if isinstance(hikari.Output.Data, bytes):
+            if str(qqid) not in driver.config.superusers:
+                for each in adminuser_command_list:
+                    if each in str(ev.message) and qqid not in driver.config.admin_list:
+                        await bot.send(ev, '请联系机器人搭建者添加权限')
+                        return
+            hikari = await init_hikari(platform=server_type, PlatformId=str(qqid), command_text=str(matchmsg), GroupId=group_id)
+            if hikari.Status == 'success':
+                if isinstance(hikari.Output.Data, bytes):
+                    await bot.send(ev, MessageSegment.image(hikari.Output.Data))
+                elif isinstance(hikari.Output.Data, str):
+                    await bot.send(ev, hikari.Output.Data)
+            elif hikari.Status == 'wait':
                 await bot.send(ev, MessageSegment.image(hikari.Output.Data))
-            elif isinstance(hikari.Output.Data, str):
-                await bot.send(ev, hikari.Output.Data)
-        elif hikari.Status == 'wait':
-            await bot.send(ev, MessageSegment.image(hikari.Output.Data))
-            hikari = await wait_to_select(hikari)
-            if hikari.Status == 'error':
+                hikari = await wait_to_select(hikari)
+                if hikari.Status == 'error':
+                    await bot.send(ev, str(hikari.Output.Data))
+                    return
+                hikari = await callback_hikari(hikari)
+                if isinstance(hikari.Output.Data, bytes):
+                    await bot.send(ev, MessageSegment.image(hikari.Output.Data))
+                elif isinstance(hikari.Output.Data, str):
+                    await bot.send(ev, str(hikari.Output.Data))
+            else:
                 await bot.send(ev, str(hikari.Output.Data))
-                return
-            hikari = await callback_hikari(hikari)
-            if isinstance(hikari.Output.Data, bytes):
-                await bot.send(ev, MessageSegment.image(hikari.Output.Data))
-            elif isinstance(hikari.Output.Data, str):
-                await bot.send(ev, str(hikari.Output.Data))
-        else:
-            await bot.send(ev, str(hikari.Output.Data))
-    except ActionFailed:
-        logger.warning(traceback.format_exc())
-        try:
-            await bot.send(ev, '发不出图片，可能被风控了QAQ')
-            return True
+        except ActionFailed:
+            logger.warning(traceback.format_exc())
+            try:
+                await bot.send(ev, '发不出图片，可能被风控了QAQ')
+                return True
+            except Exception:
+                pass
+            return False
         except Exception:
-            pass
-        return False
-    except Exception:
-        logger.error(traceback.format_exc())
-        await bot.send(ev, '呜呜呜发生了错误，可能是网络问题，如果过段时间不能恢复请联系麻麻哦~')
+            logger.error(traceback.format_exc())
+            await bot.send(ev, '呜呜呜发生了错误，可能是网络问题，如果过段时间不能恢复请联系麻麻哦~')
+    else:
+        logger.warning('yyk把指令交给kkm处理了')
+        return True
 
+def isAbleCommand(command_text):
+    able_command_list = [driver.config.able_commands]
+    for command in able_command_list:
+        result = re.search(command, command_text)
+        if result:
+            return True
+    return False
 
 @bot_listen.handle()
 async def change_select_state(bot: Bot, ev: MessageEvent):
