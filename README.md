@@ -10,8 +10,8 @@
 ## 主要功能
 
  - 整合了HikariBot(Yuyuko)和Kokomi的全部功能。
- - 可以自定义两个水表插件的分工（例如wws me使用kkm，recent使用yyk）。
- - 为kkm添加了水表屏蔽功能，共享hikari的配置文件。可以屏蔽部分群聊，不响应水表查询。
+ - 可以在.env.prod文件中自定义两个水表插件的分工（例如wws me使用kkm，recent使用yyk）。
+ - kkm的水表屏蔽功能与hikari使用相同的配置文件。可以屏蔽部分群聊，不响应水表查询。
 
 
 ## 安装
