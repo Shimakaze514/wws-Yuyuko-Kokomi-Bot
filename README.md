@@ -17,13 +17,13 @@
 ## 安装
 0. 去看看[hikari依赖的模块](https://github.com/benx1n/HikariBot#%E5%9C%A8windows%E7%B3%BB%E7%BB%9F%E4%B8%8A%E5%AE%8C%E6%95%B4%E9%83%A8%E7%BD%B2)和[kokomi依赖的模块](https://github.com/SangonomiyaKoko/nonebot_plugin_kokomi#%E7%AC%AC%E4%B8%80%E6%AD%A5-%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83)并且全部安装好
 1. 安装**hikari_core**
-  - 解压你下载的wws-yuyuko-kokomi-bot-master.zip
-  - 把解压出来的文件夹丢进你的nonebot2项目文件夹，然后在该目录下打开powershell（或者右键→用vscode打开，然后进入终端）
-  - 运行以下命令（其实就是安装这个包而已）
-    ```
-    cd hikari_core
-    pip install .
-    ```
+   - 解压你下载的wws-yuyuko-kokomi-bot-master.zip
+   - 把解压出来的文件夹丢进你的nonebot2项目文件夹，然后在该目录下打开powershell（或者右键→用vscode打开，然后进入终端）
+   - 运行以下命令（其实就是安装这个包而已）
+     ```
+     cd hikari_core
+     pip install .
+     ```
 3. 用你喜欢的方式以插件的形式安装**hikari_bot**和**nonebot_plugin_kokomi** 
 ~~什么？你不会装插件？求求你百度或者Google亿下~~
 
