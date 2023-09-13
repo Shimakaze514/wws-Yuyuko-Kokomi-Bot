@@ -23,6 +23,7 @@ font_list = {
         25: ImageFont.truetype(font1_path, 25, encoding="utf-8"),
         30: ImageFont.truetype(font1_path, 30, encoding="utf-8"),
         35: ImageFont.truetype(font1_path, 35, encoding="utf-8"),
+        40: ImageFont.truetype(font1_path, 40, encoding="utf-8"),
         45: ImageFont.truetype(font1_path, 45, encoding="utf-8"),
         50: ImageFont.truetype(font1_path, 50, encoding="utf-8"),
         55: ImageFont.truetype(font1_path, 55, encoding="utf-8"),
@@ -33,6 +34,9 @@ font_list = {
         100: ImageFont.truetype(font1_path, 100, encoding="utf-8")
     },
     2: {
+        40: ImageFont.truetype(font2_path, 40, encoding="utf-8"),
+        50: ImageFont.truetype(font2_path, 40, encoding="utf-8"),
+        80: ImageFont.truetype(font2_path, 80, encoding="utf-8"),
         90: ImageFont.truetype(font2_path, 90, encoding="utf-8"),
         110: ImageFont.truetype(font2_path, 110, encoding="utf-8")
     }
@@ -129,6 +133,16 @@ def server_url(server: str) -> str:
         'cn': 'http://vortex.wowsgame.cn'
     }
     return url_list[server]
+
+
+def add_box(box_list, res_img):
+    img = ImageDraw.ImageDraw(res_img)
+    for index in box_list:
+        try:
+            img.rectangle((index[0], index[1]), fill=index[2], outline=None)
+        except:
+            print(index)
+    return res_img
 
 
 def add_text(text_list, res_img):

@@ -153,7 +153,6 @@ def main(
         [(602+14-150, 317+38), tag, tag_color, 1, 55])
     creat_time = time.strftime(
         "%Y-%m-%d", time.localtime(result['data']['user']['created_at']))
-    w = x_coord(creat_time, fontStyle)
     text_list.append(
         [(602+14-150, 405+38), creat_time, (0, 0, 0), 1, 55])
     #

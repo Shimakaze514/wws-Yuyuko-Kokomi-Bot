@@ -13,6 +13,7 @@ from .data_source import (
 from .scripts import (
     wws_basic,
     wws_bind,
+    wws_clan_cw_day,
     wws_game_server,
     wws_rank,
     wws_recent,
@@ -34,12 +35,11 @@ from .scripts import (
     wws_pr,
     wws_rank_season,
     wws_rank_ship,
-    wws_clan_cw
+    wws_clan_cw_all,
+    wws_info,
+    wws_cw
 )
 from .scripts.config import PLATFORM, LAST_CW_MUNBER
-
-debug = False
-user = ['1111', '2023903210', 'asia', True, False, None]
 
 file_path = os.path.dirname(__file__)
 
@@ -52,6 +52,12 @@ class select_funtion():
         group_name: str,
         group_data: dict
     ):
+        '''
+        消息匹配顺序：
+        1. wws me/@  开头的功能
+        2. wws 服务器  开头的功能
+        3. 其他
+        '''
         result = {
             'status': 'ok',
             'message': 'SUCCESS',
@@ -64,7 +70,7 @@ class select_funtion():
             result['parameter'] = None
             return result
         '''
-        用户基础数据功能
+        Part 1 me/@
         '''
         if (
             message[1] == 'me' or
@@ -95,10 +101,7 @@ class select_funtion():
             else:
                 user_id = (re.findall(r'\d+', message[1]))[0]
             # 检查是否绑定
-            if debug:
-                uid = {'status': 'ok', 'message': 'SUCCESS', 'data': user}
-            else:
-                uid = await source.get_user_uid(user_id)
+            uid = await source.get_user_uid(user_id)
             if uid['status'] != 'ok':
                 return uid
             else:
@@ -127,6 +130,25 @@ class select_funtion():
             # wws [me/@] rank
             elif message[2] == 'rank' and len(message) == 3:
                 result['function'] = wws_rank.get_png
+                result['parameter'] = [
+                    uid[1],
+                    uid[2],
+                    uid[3],
+                    uid[4],
+                    uid[5]
+                ]
+                return result
+            # wws [me/@] cw
+            elif message[2] == 'cw' and len(message) == 3:
+                result['function'] = wws_cw.get_png
+                result['parameter'] = [
+                    uid[1],
+                    uid[2]
+                ]
+                return result
+            # wws [me/@] info
+            elif message[2] == 'info' and len(message) == 3:
+                result['function'] = wws_info.get_png
                 result['parameter'] = [
                     uid[1],
                     uid[2],
@@ -294,12 +316,23 @@ class select_funtion():
                     uid[2]
                 ]
                 return result
+            # wws [me/@] clan cw
+            elif message[2] == 'clan' and message[3] == 'cw' and len(message) == 4:
+                clan_data = await source.get_user_clan(aid=uid[1], server=uid[2])
+                if clan_data['status'] != 'ok':
+                    return clan_data
+                result['function'] = wws_clan_cw_all.get_png
+                result['parameter'] = [
+                    clan_data['data'],
+                    uid[2]
+                ]
+                return result
             # wws [me/@] clan cw [code]
             elif message[2] == 'clan' and message[3] == 'cw' and len(message) == 5:
                 clan_data = await source.get_user_clan(aid=uid[1], server=uid[2])
                 if clan_data['status'] != 'ok':
                     return clan_data
-                result['function'] = wws_clan_cw.get_png
+                result['function'] = wws_clan_cw_day.get_png
                 result['parameter'] = [
                     clan_data['data'],
                     message[4],
@@ -350,6 +383,7 @@ class select_funtion():
         '''
         if message[1].lower() in server_dict:
             server = server_dict[message[1].lower()]
+            # wws id
             if len(message) == 3:
                 uid = await source.get_user_id(name=message[2], server=server)
                 if uid['status'] != 'ok':
@@ -365,6 +399,36 @@ class select_funtion():
                     None
                 ]
                 return result
+            # wws id info
+            elif message[3] == 'info' and len(message) == 4:
+                uid = await source.get_user_id(name=message[2], server=server)
+                if uid['status'] != 'ok':
+                    return uid
+                else:
+                    uid = uid['data']
+                result['function'] = wws_info.get_png
+                result['parameter'] = [
+                    uid,
+                    server,
+                    True,
+                    False,
+                    None
+                ]
+                return result
+            # wws id cw
+            elif message[3] == 'cw' and len(message) == 4:
+                uid = await source.get_user_id(name=message[2], server=server)
+                if uid['status'] != 'ok':
+                    return uid
+                else:
+                    uid = uid['data']
+                result['function'] = wws_cw.get_png
+                result['parameter'] = [
+                    uid,
+                    server
+                ]
+                return result
+            # wws set
             elif message[2] == 'set':
                 result['function'] = wws_bind.main
                 result['parameter'] = [
@@ -400,12 +464,23 @@ class select_funtion():
                     server
                 ]
                 return result
+            # wws id clan cw
+            elif message[3] == 'clan' and message[4] == 'cw' and len(message) == 5:
+                clan_data = await source.get_clan_id(clan_name=message[2], server=server)
+                if clan_data['status'] != 'ok':
+                    return clan_data
+                result['function'] = wws_clan_cw_all.get_png
+                result['parameter'] = [
+                    clan_data['data'],
+                    server
+                ]
+                return result
             # wws id clan cw [code]
             elif message[3] == 'clan' and message[4] == 'cw' and len(message) == 6:
                 clan_data = await source.get_clan_id(clan_name=message[2], server=server)
                 if clan_data['status'] != 'ok':
                     return clan_data
-                result['function'] = wws_clan_cw.get_png
+                result['function'] = wws_clan_cw_day.get_png
                 result['parameter'] = [
                     clan_data['data'],
                     message[5],
@@ -453,7 +528,9 @@ class select_funtion():
                     return result
 
         '''
+        Part 3 其他
         '''
+        # wws roll
         if message[1] == 'roll' and len(message) >= 3:
             uid = await source.get_user_uid(user_id)
             if uid['status'] != 'ok':
@@ -530,6 +607,7 @@ class select_funtion():
                 result['status'] = 'info'
                 result['message'] = 'uid格式有误'
                 return result
+        # wws group ship rank
         elif message[1] == 'group' and message[2] == 'ship' and message[3] == 'rank':
             if PLATFORM != 'qq':
                 result['status'] = 'info'
@@ -551,6 +629,7 @@ class select_funtion():
                 None
             ]
             return result
+        # wws me group ship rank
         elif message[1] == 'me' and message[2] == 'group' and message[3] == 'ship' and message[4] == 'rank':
             if PLATFORM != 'qq':
                 result['status'] = 'info'
@@ -573,10 +652,8 @@ class select_funtion():
             ]
             return result
         return {
-            'status': 'default',
-            'message': '功能未开放',
-            'function': None,
-            'parameter': None
+            'status': 'info',
+            'message': '请检查命令格式,发送wws help可查看帮助文档'
         }
 
 
