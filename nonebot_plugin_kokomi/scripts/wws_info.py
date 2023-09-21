@@ -5,7 +5,7 @@ import time
 import cv2
 import numpy as np
 import random
-from PIL import Image, ImageDraw
+from PIL import Image
 import gc
 from httpx import (
     TimeoutException,
@@ -50,14 +50,11 @@ def main(
 ):
     text_list = []
     box_list = []
-    if result['data']['user'] == {}:
-        return {'status': 'info', 'message': '该账号无战斗数据'}
     image_list = os.listdir(os.path.join(
         file_path, 'png', 'background_info'))
     random_image = random.choice(image_list)
     res_img = cv2.imread(os.path.join(
         file_path, 'png', 'background_info', random_image), cv2.IMREAD_UNCHANGED)
-
     res_img = cv2.resize(res_img, None, fx=0.8, fy=0.8)
 
     # Id卡
@@ -541,6 +538,8 @@ async def get_png(
             return result
         if result['hidden'] == True:
             return {'status': 'info', 'message': '该玩家隐藏战绩'}
+        if result['data']['user'] == {}:
+            return {'status': 'info', 'message': '该账号无战斗数据'}
         res_img = main(
             result=result,
             aid=parameter[0],
@@ -562,4 +561,4 @@ async def get_png(
     except Exception as e:
         logging.exception(
             f"Time:{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))}, Parameter:{parameter}")
-        return {'status': 'error', 'message': f'程序内部错误', 'error': str(type(e))}
+        return {'status': 'error', 'message': f'程序内部错误,Error:{type(e).__name__}', 'error': str(type(e))}

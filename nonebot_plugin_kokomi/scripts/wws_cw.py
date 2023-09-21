@@ -220,10 +220,10 @@ def main(
     if (isinstance(res_img, np.ndarray)):
         res_img = Image.fromarray(
             cv2.cvtColor(res_img, cv2.COLOR_BGR2RGB))
-
+    fontStyle = font_list[1][50]
     w = x_coord(BOT_VERSON, fontStyle)
     text_list.append(
-        [(1214-w/2, 1137+14+89*(i+1)+14), BOT_VERSON, (174, 174, 174), 1, 50])
+        [(1214-w/2, 1137+14+89*(i+1)), BOT_VERSON, (174, 174, 174), 1, 50])
     # 图表
     res_img = add_text(text_list, res_img)
     res_img = res_img.crop((0, 0, 2429, 1137+14+89*(i+2)))
@@ -274,4 +274,4 @@ async def get_png(
     except Exception as e:
         logging.exception(
             f"Time:{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))}, Parameter:{parameter}")
-        return {'status': 'error', 'message': f'程序内部错误', 'error': str(type(e))}
+        return {'status': 'error', 'message': f'程序内部错误,Error:{type(e).__name__}', 'error': str(type(e))}

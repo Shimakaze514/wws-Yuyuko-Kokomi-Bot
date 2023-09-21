@@ -37,7 +37,9 @@ from .scripts import (
     wws_rank_ship,
     wws_clan_cw_all,
     wws_info,
-    wws_cw
+    wws_cw,
+    wws_box,
+    wws_recents
 )
 from .scripts.config import PLATFORM, LAST_CW_MUNBER
 
@@ -62,12 +64,14 @@ class select_funtion():
             'status': 'ok',
             'message': 'SUCCESS',
             'function': None,
-            'parameter': None
+            'parameter': None,
+            'index': None
         }
         # wws help
         if message[1] == 'help' and len(message) == 2:
             result['function'] = wws_help.get_help_msg
             result['parameter'] = None
+            result['index'] = 0
             return result
         '''
         Part 1 me/@
@@ -116,6 +120,7 @@ class select_funtion():
                     uid[4],
                     uid[5]
                 ]
+                result['index'] = 1
                 return result
             # wws [me/@] 扫雪/sx
             elif message[2] in ['sx', '扫雪'] and len(message) == 3:
@@ -126,6 +131,7 @@ class select_funtion():
                     uid[4],
                     uid[5]
                 ]
+                result['index'] = 15
                 return result
             # wws [me/@] rank
             elif message[2] == 'rank' and len(message) == 3:
@@ -137,6 +143,19 @@ class select_funtion():
                     uid[4],
                     uid[5]
                 ]
+                result['index'] = 3
+                return result
+            # wws [me/@] recents
+            elif message[2] == 'recents' and len(message) == 3:
+                result['function'] = wws_recents.get_png
+                result['parameter'] = [
+                    uid[1],
+                    uid[2],
+                    uid[3],
+                    uid[4],
+                    uid[5]
+                ]
+                result['index'] = 28
                 return result
             # wws [me/@] cw
             elif message[2] == 'cw' and len(message) == 3:
@@ -145,6 +164,7 @@ class select_funtion():
                     uid[1],
                     uid[2]
                 ]
+                result['index'] = 4
                 return result
             # wws [me/@] info
             elif message[2] == 'info' and len(message) == 3:
@@ -156,6 +176,7 @@ class select_funtion():
                     uid[4],
                     uid[5]
                 ]
+                result['index'] = 2
                 return result
             # wws [me/@] rank season [赛季]
             elif message[2] == 'rank' and message[3] == 'season' and len(message) == 5:
@@ -178,6 +199,7 @@ class select_funtion():
                     uid[3],
                     f'10{message[4]}'
                 ]
+                result['index'] = 10
                 return result
             # wws [me/@] rank ship [ship_name]
             elif message[2] == 'rank' and message[3] == 'ship':
@@ -195,6 +217,7 @@ class select_funtion():
                     ship_id,
                     seach.get_ship_name(ship_id=ship_id)
                 ]
+                result['index'] = 9
                 return result
             # wws [me/@] rank recent [num]
             elif message[2] == 'rank' and message[3] == 'recent' and len(message) <= 5:
@@ -223,6 +246,7 @@ class select_funtion():
                     uid[4],
                     uid[5]
                 ]
+                result['index'] = 6
                 return result
             # wws [me/@] recent [num]
             elif message[2] == 'recent' and len(message) <= 4:
@@ -251,6 +275,7 @@ class select_funtion():
                     uid[4],
                     uid[5]
                 ]
+                result['index'] = 5
                 return result
             # wws [me/@] ship rank [ship_name]
             elif message[2] == 'ship' and message[3] == 'rank':
@@ -267,6 +292,7 @@ class select_funtion():
                     ship_id,
                     seach.get_ship_name(ship_id=ship_id)
                 ]
+                result['index'] = 16
                 return result
             # wws [me/@] ship [ship_name]
             elif message[2] == 'ship':
@@ -286,6 +312,7 @@ class select_funtion():
                     uid[4],
                     uid[5]
                 ]
+                result['index'] = 7
                 return result
             # wws [me/@] ships [select1] ...
             elif message[2] == 'ships' and len(message) >= 4:
@@ -304,6 +331,7 @@ class select_funtion():
                     uid[4],
                     uid[5]
                 ]
+                result['index'] = 8
                 return result
             # wws [me/@] clan
             elif message[2] == 'clan' and len(message) == 3:
@@ -315,6 +343,7 @@ class select_funtion():
                     clan_data['data'],
                     uid[2]
                 ]
+                result['index'] = 11
                 return result
             # wws [me/@] clan cw
             elif message[2] == 'clan' and message[3] == 'cw' and len(message) == 4:
@@ -326,6 +355,7 @@ class select_funtion():
                     clan_data['data'],
                     uid[2]
                 ]
+                result['index'] = 14
                 return result
             # wws [me/@] clan cw [code]
             elif message[2] == 'clan' and message[3] == 'cw' and len(message) == 5:
@@ -338,6 +368,7 @@ class select_funtion():
                     message[4],
                     uid[2]
                 ]
+                result['index'] = 14
                 return result
             # wws [me/@] clan season
             elif message[2] == 'clan' and message[3] == 'season' and len(message) <= 5:
@@ -351,6 +382,7 @@ class select_funtion():
                         LAST_CW_MUNBER,
                         uid[2]
                     ]
+                    result['index'] = 12
                     return result
                 elif message[4] == 'all':
                     result['function'] = wws_clan_season_all.get_png
@@ -359,6 +391,7 @@ class select_funtion():
                         LAST_CW_MUNBER,
                         uid[2]
                     ]
+                    result['index'] = 13
                     return result
                 else:
                     try:
@@ -377,6 +410,7 @@ class select_funtion():
                         str(cvc_season),
                         uid[2]
                     ]
+                    result['index'] = 12
                     return result
         '''
         Part 2 服务器
@@ -398,6 +432,7 @@ class select_funtion():
                     False,
                     None
                 ]
+                result['index'] = 1
                 return result
             # wws id info
             elif message[3] == 'info' and len(message) == 4:
@@ -414,6 +449,7 @@ class select_funtion():
                     False,
                     None
                 ]
+                result['index'] = 2
                 return result
             # wws id cw
             elif message[3] == 'cw' and len(message) == 4:
@@ -427,6 +463,7 @@ class select_funtion():
                     uid,
                     server
                 ]
+                result['index'] = 4
                 return result
             # wws set
             elif message[2] == 'set':
@@ -437,6 +474,7 @@ class select_funtion():
                     ''.join(message[3:]),
                     PLATFORM
                 ]
+                result['index'] = 25
                 return result
             # wws server ship rank ship_name
             elif message[2] == 'ship' and message[3] == 'rank':
@@ -452,6 +490,7 @@ class select_funtion():
                     ship_id,
                     seach.get_ship_name(ship_id=ship_id)
                 ]
+                result['index'] = 17
                 return result
              # wws id clan
             elif message[3] == 'clan' and len(message) == 4:
@@ -463,6 +502,7 @@ class select_funtion():
                     clan_data['data'],
                     server
                 ]
+                result['index'] = 11
                 return result
             # wws id clan cw
             elif message[3] == 'clan' and message[4] == 'cw' and len(message) == 5:
@@ -474,6 +514,7 @@ class select_funtion():
                     clan_data['data'],
                     server
                 ]
+                result['index'] = 14
                 return result
             # wws id clan cw [code]
             elif message[3] == 'clan' and message[4] == 'cw' and len(message) == 6:
@@ -486,6 +527,7 @@ class select_funtion():
                     message[5],
                     server
                 ]
+                result['index'] = 14
                 return result
             # wws id clan season
             elif message[3] == 'clan' and message[4] == 'season' and len(message) <= 6:
@@ -499,6 +541,7 @@ class select_funtion():
                         LAST_CW_MUNBER,
                         server
                     ]
+                    result['index'] = 12
                     return result
                 elif message[5] == 'all':
                     result['function'] = wws_clan_season_all.get_png
@@ -507,6 +550,7 @@ class select_funtion():
                         LAST_CW_MUNBER,
                         server
                     ]
+                    result['index'] = 13
                     return result
                 else:
                     try:
@@ -525,6 +569,7 @@ class select_funtion():
                         str(cvc_season),
                         server
                     ]
+                    result['index'] = 12
                     return result
 
         '''
@@ -552,6 +597,25 @@ class select_funtion():
                 uid[4],
                 uid[5]
             ]
+            result['index'] = 20
+            return result
+        # wws box
+        elif message[1] == 'box' and len(message) == 3:
+            try:
+                box_num = int(message[2])
+            except:
+                result['status'] = 'info'
+                result['message'] = '输入的参数有误'
+                return result
+            if box_num > 1000 or box_num <= 0:
+                result['status'] = 'info'
+                result['message'] = '参数范围1~1000'
+                return result
+            result['function'] = wws_box.get_png
+            result['parameter'] = [
+                '1', box_num
+            ]
+            result['index'] = 27
             return result
         # wws pr on/off
         elif message[1] == 'pr' and message[2] in ['on', 'off']:
@@ -563,6 +627,23 @@ class select_funtion():
             result['parameter'] = [
                 user_id, use_pr
             ]
+            result['index'] = 21
+            return result
+        # wws recents on
+        elif message[1] == 'recents' and message[2] == 'on':
+            uid = await source.get_user_uid(user_id)
+            if uid['status'] != 'ok':
+                return uid
+            else:
+                uid = uid['data']
+            result['function'] = wws_recents.bind_recents
+            result['parameter'] = [
+                uid[1],
+                uid[2],
+                uid[4],
+                uid[5]
+            ]
+            result['index'] = 29
             return result
         # wws ship server [select1] ...
         elif message[1] == 'ship' and message[2] == 'server' and len(message) >= 4:
@@ -576,6 +657,7 @@ class select_funtion():
             result['parameter'] = [
                 select_data
             ]
+            result['index'] = 23
             return result
         # wws search [select1] ...
         elif message[1] == 'search' and len(message) >= 3:
@@ -589,11 +671,15 @@ class select_funtion():
             result['parameter'] = [
                 select_data
             ]
+            result['index'] = 24
             return result
+        # wws game server
         elif message[1] == 'game' and message[2] == 'server' and len(message) == 3:
             result['function'] = wws_game_server.get_png
             result['parameter'] = ['1']
+            result['index'] = 22
             return result
+        # wws bind
         elif message[1] == 'bind' and len(message) == 3:
             if message[2].isdigit():
                 result['function'] = wws_uid.main
@@ -602,6 +688,7 @@ class select_funtion():
                     message[2],
                     PLATFORM
                 ]
+                result['index'] = 26
                 return result
             else:
                 result['status'] = 'info'
@@ -628,6 +715,7 @@ class select_funtion():
                 group_data,
                 None
             ]
+            result['index'] = 19
             return result
         # wws me group ship rank
         elif message[1] == 'me' and message[2] == 'group' and message[3] == 'ship' and message[4] == 'rank':
@@ -650,9 +738,11 @@ class select_funtion():
                 group_data,
                 user_id
             ]
-            return result
+            result['index'] = 18
+            return
+        # 未匹配到函数的默认返回值
         return {
-            'status': 'info',
+            'status': 'default',
             'message': '请检查命令格式,发送wws help可查看帮助文档'
         }
 

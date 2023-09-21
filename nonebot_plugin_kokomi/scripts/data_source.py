@@ -8,7 +8,6 @@ from PIL import Image, ImageDraw, ImageFont
 import os
 import time
 import platform
-from .config import PIC_PATH
 
 isWin = True if platform.system().lower() == 'windows' else False
 file_path = os.path.dirname(__file__)
@@ -177,7 +176,8 @@ def img_to_b64(pic: Image.Image) -> str:
 
 
 def img_to_file(pic: Image.Image) -> str:
-    file_name = os.path.join(PIC_PATH, str(time.time()*1000) + '.png')
+    file_name = os.path.join(os.path.join(os.path.dirname(
+        os.path.dirname(__file__)), 'temp'), str(time.time()*1000) + '.png')
     pic.save(file_name)
     return file_name
     # file:////home/.../temp.png
@@ -322,7 +322,8 @@ def merge_img(jpg_img, png_img, y1, y2, x1, x2):
 
 def x_coord(in_str: str, font: ImageFont.FreeTypeFont):
     # 获取文字的像素长度
-    x = font.getsize(in_str)[0]
+    #x = font.getsize(in_str)[0]
+    x = font.getlength(in_str)
     out_coord = x
     return out_coord
 

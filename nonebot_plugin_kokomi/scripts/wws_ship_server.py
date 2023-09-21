@@ -169,4 +169,4 @@ async def get_png(
     except Exception as e:
         logging.exception(
             f"Time:{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))}, Parameter:{parameter}")
-        return {'status': 'error', 'message': f'程序内部错误', 'error': str(type(e))}
+        return {'status': 'error', 'message': f'程序内部错误,Error:{type(e).__name__}', 'error': str(type(e))}

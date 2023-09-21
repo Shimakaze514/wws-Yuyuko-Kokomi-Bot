@@ -118,7 +118,8 @@ def main(
         temp_result[team_number]['data_after_match'] = match_data['my_clan'][0]['data_after_match']
 
         clan_tag = result['data']['clans']['tag']
-        my_team_tag = '[' + clan_tag[match_data['my_clan'][0]['clan_id']] + ']'
+        my_team_tag = '[' + \
+            str(clan_tag[match_data['my_clan'][0]['clan_id']]) + ']'
         my_team_num = 'Alpha' if match_data['my_clan'][0]['match_info']['team_number'] == '1' else 'Bravo'
         my_team_result_color = (
             96, 185, 96) if match_data['my_clan'][0]['match_info']['result'] == 'victory' else (228, 15, 39)
@@ -169,7 +170,7 @@ def main(
                 [(1900, 1240+130*i), '未统计到对局数据', (27, 27, 27), 1, 45])
         else:
             emeny_team_tag = '[' + \
-                clan_tag[match_data['emeny_clan'][0]['clan_id']] + ']'
+                str(clan_tag[match_data['emeny_clan'][0]['clan_id']]) + ']'
             emeny_team_num = 'Alpha' if match_data['emeny_clan'][
                 0]['match_info']['team_number'] == '1' else 'Bravo'
             emeny_team_result_color = (
@@ -344,4 +345,4 @@ async def get_png(
     except Exception as e:
         logging.exception(
             f"Time:{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))}, Parameter:{parameter}")
-        return {'status': 'error', 'message': f'程序内部错误', 'error': str(type(e))}
+        return {'status': 'error', 'message': f'程序内部错误,Error:{type(e).__name__}', 'error': str(type(e))}

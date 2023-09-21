@@ -249,12 +249,13 @@ def main(
         y0 = 2487+35-1270
         temp_data = season_data
         if temp_data == {} or temp_data['battles_count'] == 0:
-            battles_count = '{:,}'.format(0)
-            avg_win = '{:.2f}%'.format(0.00)
+            battles_count = '-'
+            avg_win = '-'
             avg_wins = 0.00
-            avg_damage = '{:,}'.format(0).replace(',', ' ')
-            avg_frag = '{:.2f}'.format(0.00)
-            avg_xp = '{:,}'.format(0).replace(',', ' ')
+            avg_damage = '-'
+            avg_frag = '-'
+            avg_xp = '-'
+            str_rank = '-'
         else:
             battles_count = '{:,}'.format(temp_data['battles_count'])
             avg_win = '{:.2f}%'.format(
@@ -267,9 +268,8 @@ def main(
                 temp_data['frags']/temp_data['battles_count'])
             avg_xp = '{:,}'.format(int(
                 temp_data['original_exp']/temp_data['battles_count'])).replace(',', ' ')
-
-        str_rank = rank_list[temp_data['best_season_rank']
-                             ] + ' ' + str(temp_data['best_rank'])
+            str_rank = rank_list[temp_data['best_season_rank']
+                                 ] + ' ' + str(temp_data['best_rank'])
         season_stage_str = f'-第 {season_stage[2:]} 赛季'
         text_list.append(
             [(168, y0+89*i), season_stage_str, (0, 0, 0), 1, 55])
@@ -349,4 +349,4 @@ async def get_png(
     except Exception as e:
         logging.exception(
             f"Time:{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))}, Parameter:{parameter}")
-        return {'status': 'error', 'message': f'程序内部错误', 'error': str(type(e))}
+        return {'status': 'error', 'message': f'程序内部错误,Error:{type(e).__name__}', 'error': str(type(e))}

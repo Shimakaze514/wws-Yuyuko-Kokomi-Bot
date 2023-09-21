@@ -1,21 +1,18 @@
 import random
 import traceback
-from nonebot import on_command, get_driver
+from nonebot import on_command, on_startswith, get_driver
 from nonebot.adapters.onebot.v11 import (
     ActionFailed,
     Bot,
     MessageEvent,
     MessageSegment,
-    GroupMessageEvent,
 )
 from nonebot.log import logger
-from .scripts.config import BLACKLIST, WHITELIST
-
+from .scripts.config import BLACKLIST, WHITELIST, FUNCTION_CONFIG
 from .command_select import select_funtion
 
-__plugin_version__ = "3.2.9"
-driver = get_driver()
-wws_bot = on_command("wws")  # 以wws开头的消息将被触发
+wws_bot = on_command("wws")
+#wws_bot = on_startswith('wws')
 
 
 def group_data_formate(group_data: dict):
@@ -25,14 +22,13 @@ def group_data_formate(group_data: dict):
         processed_data[group_member['user_id']] = group_member['nickname']
     return processed_data
 
-
+driver = get_driver()
 @wws_bot.handle()
 async def main(bot: Bot, ev: MessageEvent):
     if driver.config.pupu and random.randint(1, 1000) == 1:
         wws_bot.send('一天到晚惦记你那b水表，就nm离谱')
     #elif ev.group_id not in driver.config.ban_group_list:
     else:
-        logger.warning('kkm:开始处理指令')
         try:
             session_id = str(ev.get_session_id())
             # 判断消息类型，私聊/群聊
@@ -45,19 +41,19 @@ async def main(bot: Bot, ev: MessageEvent):
                 gruop_id = None
             group_name = 'None'
             group_data = None
-            # 黑名单
-            if ev.group_id in BLACKLIST:
-                logger.warning('kkm:目标群聊在黑名单中')
-                return
-            # 白名单
-            if ev.group_id != None and WHITELIST != [] and gruop_id not in WHITELIST:
-                return
+            if gruop_id:
+                # 黑名单
+                if int(gruop_id) in BLACKLIST:
+                    return
+                # 白名单
+                if WHITELIST != [] and int(gruop_id) not in WHITELIST:
+                    return
             # 国服id带空格的特殊处理
             if 'wws cn set ' in str(ev.message) or 'wws 国服 set ' in str(ev.message):
                 split_msg = ['wws', 'cn', 'set', str(ev.message)[11:]]
             else:
                 split_msg = str(ev.message).split()  # 按空格分隔消息
-
+            # 消息过滤
             if len(split_msg) == 1:
                 return
             # group rank 获取相关群聊数据
@@ -79,9 +75,16 @@ async def main(bot: Bot, ev: MessageEvent):
                 group_name=group_name,
                 group_data=group_data
             )
-            if fun['status'] != 'ok':
+            # 未匹配到函数，直接退出
+            if fun['status'] == 'default':
+                return
+            elif fun['status'] != 'ok':
                 await wws_bot.send(fun['message'])
             else:
+                # 判断是否被关闭
+                if FUNCTION_CONFIG[fun['index']][0] != True:
+                    # logger.info('')
+                    return
                 # 调用函数
                 function = fun['function']
                 result = await function(fun['parameter'])

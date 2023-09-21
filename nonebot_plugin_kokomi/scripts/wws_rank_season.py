@@ -13,6 +13,7 @@ from httpx import (
 )
 from .config import (
     DOG_TAG,
+    SHIP_PREVIEW,
     REQUEST_TIMEOUT,
     API_URL,
     API_TOKEN,
@@ -26,17 +27,21 @@ from .data_source import (
     color_box,
     merge_img,
     x_coord,
-    add_text
+    add_text,
+    formate_str
+
 )
 from .data_source import (
     font_list,
     clan_color,
     background_color,
-    border_color
+    border_color,
+    a_tier_dict
 )
 import logging
 
 file_path = os.path.dirname(__file__)
+parent_file_path = os.path.dirname(os.path.dirname(__file__))
 # 配置日志输出到文件
 logging.basicConfig(filename=os.path.join(
     file_path, 'log', 'error.log'), level=logging.ERROR)
@@ -344,18 +349,26 @@ def main(
     sorts_pr_list = ships_pr_list.items()
     # sorts_pr_list = sorted(ships_pr_list.items(),
     #                        key=lambda x: x[1], reverse=True)
-    all_png_path = os.path.join(file_path, 'png', 'ship_preview.jpg')
-    all_png = Image.open(all_png_path)
-    all_json = open(os.path.join(file_path, 'png', 'ship_preview.json'),
-                    "r", encoding="utf-8")
-    all_dict = json.load(all_json)
-    all_json.close()
+    if SHIP_PREVIEW:
+        all_png_path = os.path.join(file_path, 'png', 'ship_preview.jpg')
+        all_png = Image.open(all_png_path)
+        all_json = open(os.path.join(file_path, 'png', 'ship_preview.json'),
+                        "r", encoding="utf-8")
+        all_dict = json.load(all_json)
+        all_json.close()
+    else:
+        ship_name_file_path = os.path.join(
+            parent_file_path, 'json', 'ship_name.json')
+        temp = open(ship_name_file_path, "r", encoding="utf-8")
+        ship_name_data = json.load(temp)
+        temp.close()
     # 中间插一个筛选条件
 
     if (isinstance(res_img, np.ndarray)):
         res_img = Image.fromarray(
             cv2.cvtColor(res_img, cv2.COLOR_BGR2RGB))
     i = 0
+    fontStyle = font_list[1][50]
     for ship_id, ship_pr in sorts_pr_list:
         temp_data = result['data']['ships'][ship_id]['rank_solo']
         if temp_data == {} or temp_data['battles_count'] == 0:
@@ -369,17 +382,27 @@ def main(
                 [(1214-w/2+x0, y0+90*i), overflow_warming, (160, 160, 160), 1, 50])
             break
         # ship 图片
-        if ship_id in all_dict:
-            pic_code = all_dict[ship_id]
-            x = (pic_code % 10)
-            y = int(pic_code / 10)
-            ship_png = all_png.crop(
-                ((0+517*x), (0+115*y), (517+517*x), (115+115*y)))
-            ship_png = ship_png.resize((360, 80))
-            res_img.paste(ship_png, (110, 1912+89*i))
+        if SHIP_PREVIEW:
+            if ship_id in all_dict:
+                pic_code = all_dict[ship_id]
+                x = (pic_code % 10)
+                y = int(pic_code / 10)
+                ship_png = all_png.crop(
+                    ((0+517*x), (0+115*y), (517+517*x), (115+115*y)))
+                ship_png = ship_png.resize((360, 80))
+                res_img.paste(ship_png, (110, 1912+89*i))
+            else:
+                text_list.append(
+                    [(140, y0+89*i), 'Undefined Png', (160, 160, 160), 1, 50])
         else:
+            ship_tier = a_tier_dict[ship_name_data[ship_id]['tier']]
+            ship_name = ship_name_data[ship_id]['ship_name']['zh_sg']
+            w = x_coord(ship_tier, fontStyle)
             text_list.append(
-                [(110, 2101+108*i), 'Undefined Png', (160, 160, 160), 1, 50])
+                [(195-w/2, y0+89*i), ship_tier, (0, 0, 0), 1, 50])
+            w = x_coord(ship_name, fontStyle)
+            ship_name = formate_str(ship_name, w, 290)
+            text_list.append([(235, y0+89*i), ship_name, (0, 0, 0), 1, 50])
         # ship 数据
         battles_count = '{:,}'.format(temp_data['battles_count'])
         avg_win = '{:.2f}%'.format(
@@ -414,7 +437,6 @@ def main(
             avg_pr = temp_data['personal_rating'] / \
                 temp_data['battles_count']
 
-        fontStyle = font_list[1][50]
         if use_pr:
             str_pr = pr_info(
                 avg_pr)[5] + '(+'+str(pr_info(avg_pr)[4])+')'
@@ -445,15 +467,16 @@ def main(
         text_list.append(
             [(2209-w/2+x0, y0+89*i), avg_hit_rate_by_main, (0, 0, 0), 1, 50])
         i += 1
-
+    fontStyle = font_list[1][50]
     w = x_coord(BOT_VERSON, fontStyle)
     text_list.append(
-        [(1214-w/2, 1912+14+89*(i+1)+14), BOT_VERSON, (174, 174, 174), 1, 50])
+        [(1214-w/2, 1912+14+89*(i+1)), BOT_VERSON, (174, 174, 174), 1, 50])
     # 图表
     res_img = add_text(text_list, res_img)
     res_img = res_img.crop((0, 0, 2429, 1912+14+90*(i+2)))
     res_img = res_img.resize((int(2429*0.5), int((1912+14+90*(i+2))*0.5)))
-    del all_png
+    if SHIP_PREVIEW:
+        del all_png
     return res_img
 
 
@@ -500,4 +523,4 @@ async def get_png(
     except Exception as e:
         logging.exception(
             f"Time:{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))}, Parameter:{parameter}")
-        return {'status': 'error', 'message': f'程序内部错误', 'error': str(type(e))}
+        return {'status': 'error', 'message': f'程序内部错误,Error:{type(e).__name__}', 'error': str(type(e))}
