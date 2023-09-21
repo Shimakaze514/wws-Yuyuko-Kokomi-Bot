@@ -1,0 +1,1268 @@
+INFO:uvicorn.error:Started server process [21236]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [21236]
+INFO:uvicorn.error:Started server process [15284]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:Started server process [12516]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 7088) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+ERROR:apscheduler.executors.default:Job "job_listen_battle (trigger: interval[0:01:00], next run at: 2023-09-13 16:15:54 CST)" raised an exception
+Traceback (most recent call last):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\apscheduler\executors\base_py3.py", line 30, in run_coroutine_job
+    retval = await job.func(*job.args, **job.kwargs)
+  File "S:\SystemTools\nonebot2-master\kokomi2\kokomi2\plugins\hikari_bot\__init__.py", line 301, in job_listen_battle
+    await bot.send_group_msg(group_id=_each['group_id'], message=_each['msg'])
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\nonebot\internal\adapter\bot.py", line 120, in call_api
+    raise exception
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\nonebot\internal\adapter\bot.py", line 98, in call_api
+    result = await self.adapter._call_api(self, api, **data)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\nonebot\adapters\onebot\v11\adapter.py", line 143, in _call_api
+    return handle_api_result(await self._result_store.fetch(seq, timeout))
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\nonebot\adapters\onebot\v11\utils.py", line 58, in handle_api_result
+    raise ActionFailed(**result)
+nonebot.adapters.onebot.v11.exception.ActionFailed: ActionFailed(data=None, echo='3', message='send group message failed: blocked by server', msg='SEND_MSG_API_ERROR', retcode=100, status='failed', wording='send group message failed: blocked by server')
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [12516]
+INFO:uvicorn.error:Started server process [38140]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 7190) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [38140]
+INFO:uvicorn.error:Started server process [37564]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 7372) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [37564]
+INFO:uvicorn.error:Started server process [37956]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 9974) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [37956]
+INFO:uvicorn.error:Started server process [13352]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 10073) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [13352]
+INFO:uvicorn.error:Started server process [28716]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 10099) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [28716]
+INFO:uvicorn.error:Started server process [13508]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 10117) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [13508]
+INFO:uvicorn.error:Started server process [18736]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 10548) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [18736]
+ERROR:apscheduler.executors.default:Job "job_listen_battle (trigger: interval[0:01:00], next run at: 2023-09-13 17:13:24 CST)" raised an exception
+Traceback (most recent call last):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\streams\tls.py", line 131, in _call_sslobject_method
+    result = func(*args)
+  File "C:\Python310\lib\ssl.py", line 917, in read
+    v = self._sslobj.read(len)
+ssl.SSLWantReadError: The operation did not complete (read) (_ssl.c:2578)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 99, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 164, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 200, in _receive_event
+    data = await self._network_stream.read(
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_backends\anyio.py", line 34, in read
+    return await self._stream.receive(max_bytes=max_bytes)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\streams\tls.py", line 196, in receive
+    data = await self._call_sslobject_method(self._ssl_object.read, max_bytes)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\streams\tls.py", line 138, in _call_sslobject_method
+    data = await self.transport_stream.receive()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\_backends\_asyncio.py", line 1203, in receive
+    await self._protocol.read_event.wait()
+  File "C:\Python310\lib\asyncio\locks.py", line 214, in wait
+    await fut
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\apscheduler\executors\base_py3.py", line 30, in run_coroutine_job
+    retval = await job.func(*job.args, **job.kwargs)
+  File "S:\SystemTools\nonebot2-master\kokomi2\kokomi2\plugins\hikari_bot\__init__.py", line 298, in job_listen_battle
+    hikari = await get_diff_ship(hikari)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\hikari_core\moudle\wws_real_game.py", line 140, in get_diff_ship
+    latest_data = await get_latest_info(account['server'], account['account_id'])
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\hikari_core\moudle\wws_real_game.py", line 42, in get_latest_info
+    resp = await client_wg.get(api_list[server], params=params)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1757, in get
+    return await self.request(
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1530, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1617, in send
+    response = await self._send_handling_auth(
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1645, in _send_handling_auth
+    response = await self._send_handling_redirects(
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1682, in _send_handling_redirects
+    response = await self._send_single_request(request)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1719, in _send_single_request
+    response = await transport.handle_async_request(request)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_transports\default.py", line 353, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\connection_pool.py", line 262, in handle_async_request
+    raise exc
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\connection_pool.py", line 245, in handle_async_request
+    response = await connection.handle_async_request(request)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\connection.py", line 96, in handle_async_request
+    return await self._connection.handle_async_request(request)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 120, in handle_async_request
+    await self._response_closed()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\_core\_synchronization.py", line 143, in acquire
+    await cancel_shielded_checkpoint()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\lowlevel.py", line 61, in cancel_shielded_checkpoint
+    await get_asynclib().cancel_shielded_checkpoint()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\_backends\_asyncio.py", line 471, in cancel_shielded_checkpoint
+    await sleep(0)
+  File "C:\Python310\lib\asyncio\tasks.py", line 596, in sleep
+    await __sleep0()
+  File "C:\Python310\lib\asyncio\tasks.py", line 590, in __sleep0
+    yield
+asyncio.exceptions.CancelledError
+INFO:uvicorn.error:Started server process [7916]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 10625) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [7916]
+INFO:uvicorn.error:Started server process [34328]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 10815) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [34328]
+ERROR:apscheduler.executors.default:Job "job_listen_battle (trigger: interval[0:01:00], next run at: 2023-09-13 17:18:14 CST)" raised an exception
+Traceback (most recent call last):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\streams\tls.py", line 131, in _call_sslobject_method
+    result = func(*args)
+  File "C:\Python310\lib\ssl.py", line 917, in read
+    v = self._sslobj.read(len)
+ssl.SSLWantReadError: The operation did not complete (read) (_ssl.c:2578)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 317, in __aiter__
+    async for chunk in self._connection._receive_response_body(**kwargs):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 186, in _receive_response_body
+    event = await self._receive_event(timeout=timeout)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 200, in _receive_event
+    data = await self._network_stream.read(
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_backends\anyio.py", line 34, in read
+    return await self._stream.receive(max_bytes=max_bytes)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\streams\tls.py", line 196, in receive
+    data = await self._call_sslobject_method(self._ssl_object.read, max_bytes)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\streams\tls.py", line 138, in _call_sslobject_method
+    data = await self.transport_stream.receive()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\_backends\_asyncio.py", line 1203, in receive
+    await self._protocol.read_event.wait()
+  File "C:\Python310\lib\asyncio\locks.py", line 214, in wait
+    await fut
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\apscheduler\executors\base_py3.py", line 30, in run_coroutine_job
+    retval = await job.func(*job.args, **job.kwargs)
+  File "S:\SystemTools\nonebot2-master\kokomi2\kokomi2\plugins\hikari_bot\__init__.py", line 298, in job_listen_battle
+    hikari = await get_diff_ship(hikari)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\hikari_core\moudle\wws_real_game.py", line 140, in get_diff_ship
+    latest_data = await get_latest_info(account['server'], account['account_id'])
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\hikari_core\moudle\wws_real_game.py", line 42, in get_latest_info
+    resp = await client_wg.get(api_list[server], params=params)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1757, in get
+    return await self.request(
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1530, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1631, in send
+    raise exc
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1625, in send
+    await response.aread()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_models.py", line 909, in aread
+    self._content = b"".join([part async for part in self.aiter_bytes()])
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_models.py", line 909, in <listcomp>
+    self._content = b"".join([part async for part in self.aiter_bytes()])
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_models.py", line 927, in aiter_bytes
+    async for raw_bytes in self.aiter_raw():
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_models.py", line 985, in aiter_raw
+    async for raw_stream_bytes in self.stream:
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 146, in __aiter__
+    async for chunk in self._stream:
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_transports\default.py", line 239, in __aiter__
+    async for part in self._httpcore_stream:
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\connection_pool.py", line 347, in __aiter__
+    async for part in self._stream:
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 324, in __aiter__
+    await self.aclose()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 331, in aclose
+    await self._connection._response_closed()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 222, in _response_closed
+    async with self._state_lock:
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_synchronization.py", line 53, in __aenter__
+    await self._anyio_lock.acquire()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\_core\_synchronization.py", line 143, in acquire
+    await cancel_shielded_checkpoint()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\lowlevel.py", line 61, in cancel_shielded_checkpoint
+    await get_asynclib().cancel_shielded_checkpoint()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\_backends\_asyncio.py", line 471, in cancel_shielded_checkpoint
+    await sleep(0)
+  File "C:\Python310\lib\asyncio\tasks.py", line 596, in sleep
+    await __sleep0()
+  File "C:\Python310\lib\asyncio\tasks.py", line 590, in __sleep0
+    yield
+asyncio.exceptions.CancelledError
+INFO:uvicorn.error:Started server process [24280]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 10891) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [24280]
+ERROR:apscheduler.executors.default:Job "job_listen_battle (trigger: interval[0:01:00], next run at: 2023-09-13 17:20:28 CST)" raised an exception
+Traceback (most recent call last):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\streams\tls.py", line 131, in _call_sslobject_method
+    result = func(*args)
+  File "C:\Python310\lib\ssl.py", line 917, in read
+    v = self._sslobj.read(len)
+ssl.SSLWantReadError: The operation did not complete (read) (_ssl.c:2578)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 99, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 164, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 200, in _receive_event
+    data = await self._network_stream.read(
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_backends\anyio.py", line 34, in read
+    return await self._stream.receive(max_bytes=max_bytes)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\streams\tls.py", line 196, in receive
+    data = await self._call_sslobject_method(self._ssl_object.read, max_bytes)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\streams\tls.py", line 138, in _call_sslobject_method
+    data = await self.transport_stream.receive()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\_backends\_asyncio.py", line 1203, in receive
+    await self._protocol.read_event.wait()
+  File "C:\Python310\lib\asyncio\locks.py", line 214, in wait
+    await fut
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\apscheduler\executors\base_py3.py", line 30, in run_coroutine_job
+    retval = await job.func(*job.args, **job.kwargs)
+  File "S:\SystemTools\nonebot2-master\kokomi2\kokomi2\plugins\hikari_bot\__init__.py", line 298, in job_listen_battle
+    hikari = await get_diff_ship(hikari)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\hikari_core\moudle\wws_real_game.py", line 140, in get_diff_ship
+    latest_data = await get_latest_info(account['server'], account['account_id'])
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\hikari_core\moudle\wws_real_game.py", line 42, in get_latest_info
+    resp = await client_wg.get(api_list[server], params=params)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1757, in get
+    return await self.request(
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1530, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1617, in send
+    response = await self._send_handling_auth(
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1645, in _send_handling_auth
+    response = await self._send_handling_redirects(
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1682, in _send_handling_redirects
+    response = await self._send_single_request(request)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1719, in _send_single_request
+    response = await transport.handle_async_request(request)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_transports\default.py", line 353, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\connection_pool.py", line 262, in handle_async_request
+    raise exc
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\connection_pool.py", line 245, in handle_async_request
+    response = await connection.handle_async_request(request)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\connection.py", line 96, in handle_async_request
+    return await self._connection.handle_async_request(request)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 120, in handle_async_request
+    await self._response_closed()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\_core\_synchronization.py", line 143, in acquire
+    await cancel_shielded_checkpoint()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\lowlevel.py", line 61, in cancel_shielded_checkpoint
+    await get_asynclib().cancel_shielded_checkpoint()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\_backends\_asyncio.py", line 471, in cancel_shielded_checkpoint
+    await sleep(0)
+  File "C:\Python310\lib\asyncio\tasks.py", line 596, in sleep
+    await __sleep0()
+  File "C:\Python310\lib\asyncio\tasks.py", line 590, in __sleep0
+    yield
+asyncio.exceptions.CancelledError
+INFO:uvicorn.error:Started server process [1832]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 11099) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [1832]
+INFO:uvicorn.error:Started server process [19488]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 11607) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [19488]
+INFO:uvicorn.error:Started server process [34872]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 11759) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [34872]
+INFO:uvicorn.error:Started server process [14204]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 11915) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [14204]
+ERROR:apscheduler.executors.default:Job "job_listen_battle (trigger: interval[0:01:00], next run at: 2023-09-13 17:39:02 CST)" raised an exception
+Traceback (most recent call last):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\streams\tls.py", line 131, in _call_sslobject_method
+    result = func(*args)
+  File "C:\Python310\lib\ssl.py", line 917, in read
+    v = self._sslobj.read(len)
+ssl.SSLWantReadError: The operation did not complete (read) (_ssl.c:2578)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 99, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 164, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 200, in _receive_event
+    data = await self._network_stream.read(
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_backends\anyio.py", line 34, in read
+    return await self._stream.receive(max_bytes=max_bytes)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\streams\tls.py", line 196, in receive
+    data = await self._call_sslobject_method(self._ssl_object.read, max_bytes)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\streams\tls.py", line 138, in _call_sslobject_method
+    data = await self.transport_stream.receive()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\_backends\_asyncio.py", line 1203, in receive
+    await self._protocol.read_event.wait()
+  File "C:\Python310\lib\asyncio\locks.py", line 214, in wait
+    await fut
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\apscheduler\executors\base_py3.py", line 30, in run_coroutine_job
+    retval = await job.func(*job.args, **job.kwargs)
+  File "S:\SystemTools\nonebot2-master\kokomi2\kokomi2\plugins\hikari_bot\__init__.py", line 305, in job_listen_battle
+    async def job_listen_battle():
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\hikari_core\moudle\wws_real_game.py", line 140, in get_diff_ship
+    latest_data = await get_latest_info(account['server'], account['account_id'])
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\hikari_core\moudle\wws_real_game.py", line 42, in get_latest_info
+    resp = await client_wg.get(api_list[server], params=params)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1757, in get
+    return await self.request(
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1530, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1617, in send
+    response = await self._send_handling_auth(
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1645, in _send_handling_auth
+    response = await self._send_handling_redirects(
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1682, in _send_handling_redirects
+    response = await self._send_single_request(request)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1719, in _send_single_request
+    response = await transport.handle_async_request(request)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_transports\default.py", line 353, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\connection_pool.py", line 262, in handle_async_request
+    raise exc
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\connection_pool.py", line 245, in handle_async_request
+    response = await connection.handle_async_request(request)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\connection.py", line 96, in handle_async_request
+    return await self._connection.handle_async_request(request)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 120, in handle_async_request
+    await self._response_closed()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\_core\_synchronization.py", line 143, in acquire
+    await cancel_shielded_checkpoint()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\lowlevel.py", line 61, in cancel_shielded_checkpoint
+    await get_asynclib().cancel_shielded_checkpoint()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\_backends\_asyncio.py", line 471, in cancel_shielded_checkpoint
+    await sleep(0)
+  File "C:\Python310\lib\asyncio\tasks.py", line 596, in sleep
+    await __sleep0()
+  File "C:\Python310\lib\asyncio\tasks.py", line 590, in __sleep0
+    yield
+asyncio.exceptions.CancelledError
+INFO:uvicorn.error:Started server process [38968]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 13945) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [38968]
+INFO:uvicorn.error:Started server process [11904]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 14209) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [11904]
+INFO:uvicorn.error:Started server process [36488]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 14287) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [36488]
+INFO:uvicorn.error:Started server process [13104]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 14701) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [13104]
+INFO:uvicorn.error:Started server process [39196]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 14951) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [39196]
+INFO:uvicorn.error:Started server process [38724]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 1108) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [38724]
+INFO:uvicorn.error:Started server process [39392]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 1169) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Started server process [38968]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+ERROR:uvicorn.error:[Errno 10048] error while attempting to bind on address ('0.0.0.0', 8080): 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Started server process [19576]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+ERROR:uvicorn.error:[Errno 10048] error while attempting to bind on address ('0.0.0.0', 8080): 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Started server process [29284]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 1405) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [29284]
+INFO:uvicorn.error:Started server process [25572]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 1499) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [25572]
+ERROR:apscheduler.executors.default:Job "job_listen_battle (trigger: interval[0:01:00], next run at: 2023-09-13 18:01:41 CST)" raised an exception
+Traceback (most recent call last):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\streams\tls.py", line 131, in _call_sslobject_method
+    result = func(*args)
+  File "C:\Python310\lib\ssl.py", line 917, in read
+    v = self._sslobj.read(len)
+ssl.SSLWantReadError: The operation did not complete (read) (_ssl.c:2578)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 99, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 164, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 200, in _receive_event
+    data = await self._network_stream.read(
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_backends\anyio.py", line 34, in read
+    return await self._stream.receive(max_bytes=max_bytes)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\streams\tls.py", line 196, in receive
+    data = await self._call_sslobject_method(self._ssl_object.read, max_bytes)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\streams\tls.py", line 138, in _call_sslobject_method
+    data = await self.transport_stream.receive()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\_backends\_asyncio.py", line 1203, in receive
+    await self._protocol.read_event.wait()
+  File "C:\Python310\lib\asyncio\locks.py", line 214, in wait
+    await fut
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\apscheduler\executors\base_py3.py", line 30, in run_coroutine_job
+    retval = await job.func(*job.args, **job.kwargs)
+  File "S:\SystemTools\nonebot2-master\kokomi2\kokomi2\plugins\hikari_bot\__init__.py", line 309, in job_listen_battle
+    hikari = await get_diff_ship(hikari)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\hikari_core\moudle\wws_real_game.py", line 140, in get_diff_ship
+    latest_data = await get_latest_info(account['server'], account['account_id'])
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\hikari_core\moudle\wws_real_game.py", line 42, in get_latest_info
+    resp = await client_wg.get(api_list[server], params=params)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1757, in get
+    return await self.request(
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1530, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1617, in send
+    response = await self._send_handling_auth(
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1645, in _send_handling_auth
+    response = await self._send_handling_redirects(
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1682, in _send_handling_redirects
+    response = await self._send_single_request(request)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1719, in _send_single_request
+    response = await transport.handle_async_request(request)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_transports\default.py", line 353, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\connection_pool.py", line 262, in handle_async_request
+    raise exc
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\connection_pool.py", line 245, in handle_async_request
+    response = await connection.handle_async_request(request)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\connection.py", line 96, in handle_async_request
+    return await self._connection.handle_async_request(request)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 120, in handle_async_request
+    await self._response_closed()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\_core\_synchronization.py", line 143, in acquire
+    await cancel_shielded_checkpoint()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\lowlevel.py", line 61, in cancel_shielded_checkpoint
+    await get_asynclib().cancel_shielded_checkpoint()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\_backends\_asyncio.py", line 471, in cancel_shielded_checkpoint
+    await sleep(0)
+  File "C:\Python310\lib\asyncio\tasks.py", line 596, in sleep
+    await __sleep0()
+  File "C:\Python310\lib\asyncio\tasks.py", line 590, in __sleep0
+    yield
+asyncio.exceptions.CancelledError
+INFO:uvicorn.error:Started server process [26372]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 1611) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [26372]
+INFO:uvicorn.error:Started server process [26328]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 1647) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [26328]
+INFO:uvicorn.error:Started server process [26376]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 1896) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [26376]
+INFO:uvicorn.error:Started server process [11676]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 2054) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [11676]
+INFO:uvicorn.error:Started server process [41356]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 2165) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [41356]
+INFO:uvicorn.error:Started server process [20088]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 2239) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [20088]
+INFO:uvicorn.error:Started server process [41624]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 2315) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [41624]
+INFO:uvicorn.error:Started server process [39548]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 3179) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [39548]
+INFO:uvicorn.error:Started server process [39564]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 5279) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [39564]
+INFO:uvicorn.error:Started server process [27900]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 5456) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [27900]
+INFO:uvicorn.error:Started server process [28028]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 5542) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [28028]
+INFO:uvicorn.error:Started server process [29332]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 6260) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [29332]
+ERROR:apscheduler.executors.default:Job "job_listen_battle (trigger: interval[0:01:00], next run at: 2023-09-13 19:22:16 CST)" raised an exception
+Traceback (most recent call last):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\streams\tls.py", line 131, in _call_sslobject_method
+    result = func(*args)
+  File "C:\Python310\lib\ssl.py", line 917, in read
+    v = self._sslobj.read(len)
+ssl.SSLWantReadError: The operation did not complete (read) (_ssl.c:2578)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 317, in __aiter__
+    async for chunk in self._connection._receive_response_body(**kwargs):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 186, in _receive_response_body
+    event = await self._receive_event(timeout=timeout)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 200, in _receive_event
+    data = await self._network_stream.read(
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_backends\anyio.py", line 34, in read
+    return await self._stream.receive(max_bytes=max_bytes)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\streams\tls.py", line 196, in receive
+    data = await self._call_sslobject_method(self._ssl_object.read, max_bytes)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\streams\tls.py", line 138, in _call_sslobject_method
+    data = await self.transport_stream.receive()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\_backends\_asyncio.py", line 1203, in receive
+    await self._protocol.read_event.wait()
+  File "C:\Python310\lib\asyncio\locks.py", line 214, in wait
+    await fut
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\apscheduler\executors\base_py3.py", line 30, in run_coroutine_job
+    retval = await job.func(*job.args, **job.kwargs)
+  File "S:\SystemTools\nonebot2-master\kokomi2\kokomi2\plugins\hikari_bot\__init__.py", line 308, in job_listen_battle
+    hikari = await get_diff_ship(hikari)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\hikari_core\moudle\wws_real_game.py", line 140, in get_diff_ship
+    latest_data = await get_latest_info(account['server'], account['account_id'])
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\hikari_core\moudle\wws_real_game.py", line 42, in get_latest_info
+    resp = await client_wg.get(api_list[server], params=params)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1757, in get
+    return await self.request(
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1530, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1631, in send
+    raise exc
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1625, in send
+    await response.aread()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_models.py", line 909, in aread
+    self._content = b"".join([part async for part in self.aiter_bytes()])
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_models.py", line 909, in <listcomp>
+    self._content = b"".join([part async for part in self.aiter_bytes()])
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_models.py", line 927, in aiter_bytes
+    async for raw_bytes in self.aiter_raw():
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_models.py", line 985, in aiter_raw
+    async for raw_stream_bytes in self.stream:
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 146, in __aiter__
+    async for chunk in self._stream:
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_transports\default.py", line 239, in __aiter__
+    async for part in self._httpcore_stream:
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\connection_pool.py", line 347, in __aiter__
+    async for part in self._stream:
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 324, in __aiter__
+    await self.aclose()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 331, in aclose
+    await self._connection._response_closed()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 222, in _response_closed
+    async with self._state_lock:
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_synchronization.py", line 53, in __aenter__
+    await self._anyio_lock.acquire()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\_core\_synchronization.py", line 143, in acquire
+    await cancel_shielded_checkpoint()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\lowlevel.py", line 61, in cancel_shielded_checkpoint
+    await get_asynclib().cancel_shielded_checkpoint()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\_backends\_asyncio.py", line 471, in cancel_shielded_checkpoint
+    await sleep(0)
+  File "C:\Python310\lib\asyncio\tasks.py", line 596, in sleep
+    await __sleep0()
+  File "C:\Python310\lib\asyncio\tasks.py", line 590, in __sleep0
+    yield
+asyncio.exceptions.CancelledError
+INFO:uvicorn.error:Started server process [25864]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 7032) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [25864]
+ERROR:apscheduler.executors.default:Job "job_listen_battle (trigger: interval[0:01:00], next run at: 2023-09-13 19:26:37 CST)" raised an exception
+Traceback (most recent call last):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\streams\tls.py", line 131, in _call_sslobject_method
+    result = func(*args)
+  File "C:\Python310\lib\ssl.py", line 917, in read
+    v = self._sslobj.read(len)
+ssl.SSLWantReadError: The operation did not complete (read) (_ssl.c:2578)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 99, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 164, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 200, in _receive_event
+    data = await self._network_stream.read(
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_backends\anyio.py", line 34, in read
+    return await self._stream.receive(max_bytes=max_bytes)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\streams\tls.py", line 196, in receive
+    data = await self._call_sslobject_method(self._ssl_object.read, max_bytes)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\streams\tls.py", line 138, in _call_sslobject_method
+    data = await self.transport_stream.receive()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\_backends\_asyncio.py", line 1203, in receive
+    await self._protocol.read_event.wait()
+  File "C:\Python310\lib\asyncio\locks.py", line 214, in wait
+    await fut
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\apscheduler\executors\base_py3.py", line 30, in run_coroutine_job
+    retval = await job.func(*job.args, **job.kwargs)
+  File "S:\SystemTools\nonebot2-master\kokomi2\kokomi2\plugins\hikari_bot\__init__.py", line 308, in job_listen_battle
+    hikari = await get_diff_ship(hikari)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\hikari_core\moudle\wws_real_game.py", line 140, in get_diff_ship
+    latest_data = await get_latest_info(account['server'], account['account_id'])
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\hikari_core\moudle\wws_real_game.py", line 42, in get_latest_info
+    resp = await client_wg.get(api_list[server], params=params)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1757, in get
+    return await self.request(
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1530, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1617, in send
+    response = await self._send_handling_auth(
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1645, in _send_handling_auth
+    response = await self._send_handling_redirects(
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1682, in _send_handling_redirects
+    response = await self._send_single_request(request)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1719, in _send_single_request
+    response = await transport.handle_async_request(request)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_transports\default.py", line 353, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\connection_pool.py", line 262, in handle_async_request
+    raise exc
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\connection_pool.py", line 245, in handle_async_request
+    response = await connection.handle_async_request(request)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\connection.py", line 96, in handle_async_request
+    return await self._connection.handle_async_request(request)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 120, in handle_async_request
+    await self._response_closed()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\_core\_synchronization.py", line 143, in acquire
+    await cancel_shielded_checkpoint()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\lowlevel.py", line 61, in cancel_shielded_checkpoint
+    await get_asynclib().cancel_shielded_checkpoint()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\_backends\_asyncio.py", line 471, in cancel_shielded_checkpoint
+    await sleep(0)
+  File "C:\Python310\lib\asyncio\tasks.py", line 596, in sleep
+    await __sleep0()
+  File "C:\Python310\lib\asyncio\tasks.py", line 590, in __sleep0
+    yield
+asyncio.exceptions.CancelledError
+INFO:uvicorn.error:Started server process [29352]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 7265) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [29352]
+ERROR:apscheduler.executors.default:Job "job_listen_battle (trigger: interval[0:01:00], next run at: 2023-09-13 19:27:58 CST)" raised an exception
+Traceback (most recent call last):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\streams\tls.py", line 131, in _call_sslobject_method
+    result = func(*args)
+  File "C:\Python310\lib\ssl.py", line 917, in read
+    v = self._sslobj.read(len)
+ssl.SSLWantReadError: The operation did not complete (read) (_ssl.c:2578)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 317, in __aiter__
+    async for chunk in self._connection._receive_response_body(**kwargs):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 186, in _receive_response_body
+    event = await self._receive_event(timeout=timeout)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 200, in _receive_event
+    data = await self._network_stream.read(
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_backends\anyio.py", line 34, in read
+    return await self._stream.receive(max_bytes=max_bytes)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\streams\tls.py", line 196, in receive
+    data = await self._call_sslobject_method(self._ssl_object.read, max_bytes)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\streams\tls.py", line 138, in _call_sslobject_method
+    data = await self.transport_stream.receive()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\_backends\_asyncio.py", line 1203, in receive
+    await self._protocol.read_event.wait()
+  File "C:\Python310\lib\asyncio\locks.py", line 214, in wait
+    await fut
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\apscheduler\executors\base_py3.py", line 30, in run_coroutine_job
+    retval = await job.func(*job.args, **job.kwargs)
+  File "S:\SystemTools\nonebot2-master\kokomi2\kokomi2\plugins\hikari_bot\__init__.py", line 308, in job_listen_battle
+    hikari = await get_diff_ship(hikari)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\hikari_core\moudle\wws_real_game.py", line 140, in get_diff_ship
+    latest_data = await get_latest_info(account['server'], account['account_id'])
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\hikari_core\moudle\wws_real_game.py", line 42, in get_latest_info
+    resp = await client_wg.get(api_list[server], params=params)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1757, in get
+    return await self.request(
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1530, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1631, in send
+    raise exc
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1625, in send
+    await response.aread()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_models.py", line 909, in aread
+    self._content = b"".join([part async for part in self.aiter_bytes()])
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_models.py", line 909, in <listcomp>
+    self._content = b"".join([part async for part in self.aiter_bytes()])
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_models.py", line 927, in aiter_bytes
+    async for raw_bytes in self.aiter_raw():
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_models.py", line 985, in aiter_raw
+    async for raw_stream_bytes in self.stream:
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 146, in __aiter__
+    async for chunk in self._stream:
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_transports\default.py", line 239, in __aiter__
+    async for part in self._httpcore_stream:
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\connection_pool.py", line 347, in __aiter__
+    async for part in self._stream:
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 324, in __aiter__
+    await self.aclose()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 331, in aclose
+    await self._connection._response_closed()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 222, in _response_closed
+    async with self._state_lock:
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_synchronization.py", line 53, in __aenter__
+    await self._anyio_lock.acquire()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\_core\_synchronization.py", line 143, in acquire
+    await cancel_shielded_checkpoint()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\lowlevel.py", line 61, in cancel_shielded_checkpoint
+    await get_asynclib().cancel_shielded_checkpoint()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\_backends\_asyncio.py", line 471, in cancel_shielded_checkpoint
+    await sleep(0)
+  File "C:\Python310\lib\asyncio\tasks.py", line 596, in sleep
+    await __sleep0()
+  File "C:\Python310\lib\asyncio\tasks.py", line 590, in __sleep0
+    yield
+asyncio.exceptions.CancelledError
+INFO:uvicorn.error:Started server process [38592]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 7351) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [38592]
+INFO:uvicorn.error:Started server process [35408]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 7751) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:('127.0.0.1', 10455) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Started server process [16112]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 9615) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Started server process [34716]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 13182) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Started server process [46040]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 13364) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Started server process [46556]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 3517) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [46556]
+INFO:uvicorn.error:Started server process [48372]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 5377) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [48372]
+INFO:uvicorn.error:Started server process [47212]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 6926) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [47212]
+INFO:uvicorn.error:Started server process [49876]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 7102) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [49876]
+INFO:uvicorn.error:Started server process [38636]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 7392) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [38636]
+ERROR:apscheduler.executors.default:Job "job_listen_battle (trigger: interval[0:01:00], next run at: 2023-09-19 00:01:40 CST)" raised an exception
+Traceback (most recent call last):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\streams\tls.py", line 131, in _call_sslobject_method
+    result = func(*args)
+  File "C:\Python310\lib\ssl.py", line 917, in read
+    v = self._sslobj.read(len)
+ssl.SSLWantReadError: The operation did not complete (read) (_ssl.c:2578)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 317, in __aiter__
+    async for chunk in self._connection._receive_response_body(**kwargs):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 186, in _receive_response_body
+    event = await self._receive_event(timeout=timeout)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 200, in _receive_event
+    data = await self._network_stream.read(
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_backends\anyio.py", line 34, in read
+    return await self._stream.receive(max_bytes=max_bytes)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\streams\tls.py", line 196, in receive
+    data = await self._call_sslobject_method(self._ssl_object.read, max_bytes)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\streams\tls.py", line 138, in _call_sslobject_method
+    data = await self.transport_stream.receive()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\_backends\_asyncio.py", line 1203, in receive
+    await self._protocol.read_event.wait()
+  File "C:\Python310\lib\asyncio\locks.py", line 214, in wait
+    await fut
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\apscheduler\executors\base_py3.py", line 30, in run_coroutine_job
+    retval = await job.func(*job.args, **job.kwargs)
+  File "S:\SystemTools\nonebot2-master\kokomi2\kokomi2\plugins\hikari_bot\__init__.py", line 308, in job_listen_battle
+    hikari = await get_diff_ship(hikari)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\hikari_core\moudle\wws_real_game.py", line 140, in get_diff_ship
+    latest_data = await get_latest_info(account['server'], account['account_id'])
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\hikari_core\moudle\wws_real_game.py", line 42, in get_latest_info
+    resp = await client_wg.get(api_list[server], params=params)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1757, in get
+    return await self.request(
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1530, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1631, in send
+    raise exc
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 1625, in send
+    await response.aread()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_models.py", line 909, in aread
+    self._content = b"".join([part async for part in self.aiter_bytes()])
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_models.py", line 909, in <listcomp>
+    self._content = b"".join([part async for part in self.aiter_bytes()])
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_models.py", line 927, in aiter_bytes
+    async for raw_bytes in self.aiter_raw():
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_models.py", line 985, in aiter_raw
+    async for raw_stream_bytes in self.stream:
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_client.py", line 146, in __aiter__
+    async for chunk in self._stream:
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpx\_transports\default.py", line 239, in __aiter__
+    async for part in self._httpcore_stream:
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\connection_pool.py", line 347, in __aiter__
+    async for part in self._stream:
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 324, in __aiter__
+    await self.aclose()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 331, in aclose
+    await self._connection._response_closed()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_async\http11.py", line 222, in _response_closed
+    async with self._state_lock:
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\httpcore\_synchronization.py", line 53, in __aenter__
+    await self._anyio_lock.acquire()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\_core\_synchronization.py", line 143, in acquire
+    await cancel_shielded_checkpoint()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\lowlevel.py", line 61, in cancel_shielded_checkpoint
+    await get_asynclib().cancel_shielded_checkpoint()
+  File "S:\SystemTools\nonebot2-master\kokomi2\.venv\lib\site-packages\anyio\_backends\_asyncio.py", line 471, in cancel_shielded_checkpoint
+    await sleep(0)
+  File "C:\Python310\lib\asyncio\tasks.py", line 596, in sleep
+    await __sleep0()
+  File "C:\Python310\lib\asyncio\tasks.py", line 590, in __sleep0
+    yield
+asyncio.exceptions.CancelledError
+INFO:uvicorn.error:Started server process [32476]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 7486) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [32476]
+INFO:uvicorn.error:Started server process [42952]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 7945) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Shutting down
+INFO:uvicorn.error:connection closed
+INFO:uvicorn.error:Waiting for application shutdown.
+INFO:uvicorn.error:Application shutdown complete.
+INFO:uvicorn.error:Finished server process [42952]
+INFO:uvicorn.error:Started server process [16188]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 8077) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open
+INFO:uvicorn.error:Started server process [33504]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:uvicorn.error:('127.0.0.1', 8392) - "WebSocket /onebot/v11/ws" [accepted]
+INFO:uvicorn.error:connection open

@@ -30,7 +30,9 @@ def group_data_formate(group_data: dict):
 async def main(bot: Bot, ev: MessageEvent):
     if driver.config.pupu and random.randint(1, 1000) == 1:
         wws_bot.send('一天到晚惦记你那b水表，就nm离谱')
+    #elif ev.group_id not in driver.config.ban_group_list:
     else:
+        logger.warning('kkm:开始处理指令')
         try:
             session_id = str(ev.get_session_id())
             # 判断消息类型，私聊/群聊
@@ -44,10 +46,11 @@ async def main(bot: Bot, ev: MessageEvent):
             group_name = 'None'
             group_data = None
             # 黑名单
-            if gruop_id in BLACKLIST:
+            if ev.group_id in BLACKLIST:
+                logger.warning('kkm:目标群聊在黑名单中')
                 return
             # 白名单
-            if gruop_id != None and WHITELIST != [] and gruop_id not in WHITELIST:
+            if ev.group_id != None and WHITELIST != [] and gruop_id not in WHITELIST:
                 return
             # 国服id带空格的特殊处理
             if 'wws cn set ' in str(ev.message) or 'wws 国服 set ' in str(ev.message):
